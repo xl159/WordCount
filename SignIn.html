@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sy3_3</title>
+    <style>
+        #div1{
+            width:420px;
+            line-height:40px;
+            text-align: center;
+            font-size:20px;
+            font-weight:bold;
+            color:white;
+            background-color:rgb(0,152, 205);
+        }
+        #div2{
+            width:420px;
+            height:240px;
+            background-color:rgb(0,204, 255);
+            text-align:center;
+        }
+        [type="text"]{
+            width: 250px;
+            height: 38px;
+            position: relative;
+            top: 30px;
+            border: none;
+        }
+        [type="password"]{
+            width: 250px;
+            height: 38px;
+            position: relative;
+            top: 45px;
+            border: none;
+        }
+        [type="button"]{
+            position: relative;
+            top: 55px;
+            width: 260px;
+            height: 38px;
+            background-color: rgb(0,152, 205);
+            color: white;
+            border: 0.5px solid #fff;
+        }
+        a{
+            color: red;
+            font-size: 12px;
+        }
+        #a1{
+            visibility: hidden;
+            display: none;
+            position: relative;
+            top: 32px;
+            right: 50px;
+        }
+        #a2{
+            visibility: hidden;
+            display: block;
+            position: relative;
+            top: 32px;
+            right: 50px;
+        }
+        #a3{
+            visibility: hidden;
+            position: relative;
+            top: 42px;
+            right: 66px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">注册</div>
+    <div id="div2">
+        <input type="text" id="username" placeholder="输入您的用户名"><br>
+        <a id="a1">用户名长度必须为6到18位！</a>
+        <a id="a2">用户名必须以英文字母开头！</a>
+        <input type="password" id="psd" placeholder="输入您的密码"><br>
+        <a id="a3">密码长度不能小于6位！</a><br>
+        <input type="button" value="提交" onclick="check()">
+    </div>
+    <script>
+        function check() { 
+            var name = document.getElementById("username").value;
+            var password = document.getElementById("psd").value;
+            var keycode=name.charCodeAt(0);
+            if (name.length<6 || name.length>18){
+                document.getElementById("a1").style.visibility = "visible";
+                document.getElementById("a1").style.display = "block";
+                document.getElementById("a2").style.display = "none";
+            }else if(keycode <65||( keycode >90&& keycode <97)|| keycode >122){
+                document.getElementById("a2").style.visibility = "visible";
+                document.getElementById("a2").style.display = "block";
+                document.getElementById("a1").style.display = "none";     
+                    }
+            else{
+                    document.getElementById("a1").style.visibility = "hidden";
+                    document.getElementById("a2").style.visibility = "hidden";
+                }
+            if(password.length<6){
+                document.getElementById("a3").style.visibility = "visible";
+            }
+            else{
+                    document.getElementById("a3").style.visibility = "hidden";
+            }
+        }
+    </script>       
+</body>
+</html>
